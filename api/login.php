@@ -11,13 +11,8 @@ if ($username === '' || $password === '') {
     exit;
 }
 
-$stmt = $conn->prepare('
-    SELECT id, COALESCE(NULLIF(username, \'\'), usuario) AS login_name, password_hash
-    FROM usuarios
-    WHERE username = ? OR usuario = ?
-    LIMIT 1
-');
-$stmt->bind_param('ss', $username, $username);
+$stmt = $conn->prepare('SELECT id, username AS login_name, password_hash FROM usuarios WHERE username = ? LIMIT 1');
+$stmt->bind_param('s', $username);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();

@@ -17,8 +17,8 @@ if (strlen($password) < 6) {
     exit;
 }
 
-$check = $conn->prepare('SELECT id FROM usuarios WHERE username = ? OR usuario = ? LIMIT 1');
-$check->bind_param('ss', $username, $username);
+$check = $conn->prepare('SELECT id FROM usuarios WHERE username = ? LIMIT 1');
+$check->bind_param('s', $username);
 $check->execute();
 $exists = $check->get_result()->fetch_assoc();
 
