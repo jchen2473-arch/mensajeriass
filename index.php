@@ -22,6 +22,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="tabs">
                 <button type="button" class="tab active" data-target="login-form">Iniciar sesion</button>
                 <button type="button" class="tab" data-target="register-form">Registrar</button>
+                <button type="button" class="tab" data-target="reset-form">Recuperar contraseña</button>
             </div>
 
             <form id="login-form" class="form active">
@@ -34,6 +35,11 @@ if (isset($_SESSION['user_id'])) {
                 <input type="text" name="username" placeholder="Usuario" required>
                 <input type="password" name="password" placeholder="Contrasena" minlength="6" required>
                 <button type="submit">Crear cuenta</button>
+            </form>
+
+            <form id="reset-form" class="form">
+                <input type="text" name="username" placeholder="Usuario o correo" required>
+                <button type="submit">Solicitar restablecimiento</button>
             </form>
 
             <p id="auth-message" class="message"></p>

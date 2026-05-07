@@ -75,3 +75,8 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         submitBtn.disabled = false;
     }
 });
+
+document.getElementById('reset-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    setMessage('La recuperación de contraseña aún no está disponible. Usa un usuario existente o crea una cuenta.', false);
+});
